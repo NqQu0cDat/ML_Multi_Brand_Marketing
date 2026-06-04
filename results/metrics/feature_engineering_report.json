@@ -1,0 +1,87 @@
+{
+  "rows": 166665,
+  "columns_before": 17,
+  "columns_after": 28,
+  "features_added": [
+    "CTR",
+    "Lead_Rate",
+    "Conversion_Rate",
+    "Revenue_per_Conversion",
+    "Cost_per_Conversion",
+    "Revenue_per_Click",
+    "Year",
+    "Month",
+    "Day",
+    "DayOfWeek",
+    "Quarter"
+  ],
+  "missing_after": {
+    "Campaign_ID": 0,
+    "Campaign_Type": 0,
+    "Target_Audience": 0,
+    "Duration": 0,
+    "Channel_Used": 0,
+    "Impressions": 0,
+    "Clicks": 0,
+    "Leads": 0,
+    "Conversions": 0,
+    "Revenue": 0,
+    "Acquisition_Cost": 0,
+    "ROI": 0,
+    "Language": 0,
+    "Engagement_Score": 0,
+    "Customer_Segment": 0,
+    "Date": 0,
+    "Brand": 0,
+    "CTR": 0,
+    "Lead_Rate": 0,
+    "Conversion_Rate": 0,
+    "Revenue_per_Conversion": 0,
+    "Cost_per_Conversion": 0,
+    "Revenue_per_Click": 0,
+    "Year": 0,
+    "Month": 0,
+    "Day": 0,
+    "DayOfWeek": 0,
+    "Quarter": 0
+  },
+  "date_parse_failures": 0,
+  "zero_denominator_counts": {
+    "impressions_zero": 0,
+    "clicks_zero": 0,
+    "leads_zero": 0,
+    "conversions_zero": 0
+  },
+  "feature_summary": {
+    "CTR": {
+      "min": 0.01995920745920746,
+      "mean": 0.08502327064407382,
+      "max": 0.14999512528029638
+    },
+    "Lead_Rate": {
+      "min": 0.19799498746867167,
+      "mean": 0.3993212981070849,
+      "max": 0.599981144527199
+    },
+    "Conversion_Rate": {
+      "min": 0.288135593220339,
+      "mean": 0.5496010037073961,
+      "max": 0.7999314833847208
+    },
+    "Revenue_per_Conversion": {
+      "min": 200.0,
+      "mean": 499.54251342513425,
+      "max": 800.0
+    },
+    "Cost_per_Conversion": {
+      "min": 0.0013296488946684005,
+      "mean": 2.0761873905857717,
+      "max": 870.73
+    },
+    "Revenue_per_Click": {
+      "min": 12.790909090909091,
+      "mean": 109.6402763700094,
+      "max": 379.00859768751855
+    }
+  }
+}
