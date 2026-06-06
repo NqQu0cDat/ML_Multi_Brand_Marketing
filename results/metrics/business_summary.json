@@ -1,0 +1,743 @@
+{
+  "project_name": "Multi-Brand Marketing Campaign Performance Analysis",
+  "analysis_type": "Data Analysis / EDA / Business Analytics",
+  "rows": 166665,
+  "columns": 29,
+  "date_min": "2024-07-01",
+  "date_max": "2025-06-24",
+  "kpi_summary": {
+    "total_revenue": 85650246071,
+    "average_roi": 2.690566705667057,
+    "total_acquisition_cost": 62681853.33,
+    "average_ctr": 0.08502327064407378,
+    "average_cvr": 0.5496010037073961,
+    "average_cpa": 2.0761873905857717,
+    "total_campaigns": 166665,
+    "revenue_per_click": 109.6402763700094
+  },
+  "brand_performance": [
+    {
+      "Brand": "Nykaa",
+      "Total_Revenue": 28656364282,
+      "Average_ROI": 2.7138068581,
+      "Total_Acquisition_Cost": 20963516.36,
+      "Average_CTR": 0.0850868973,
+      "Average_CVR": 0.5501128625,
+      "Average_CPA": 2.1060495614,
+      "Revenue_per_Click": 109.8296648366,
+      "Total_Campaigns": 55555
+    },
+    {
+      "Brand": "Purplle",
+      "Total_Revenue": 28540346627,
+      "Average_ROI": 2.6829223292,
+      "Total_Acquisition_Cost": 20925359.84,
+      "Average_CTR": 0.0849773162,
+      "Average_CVR": 0.5488071845,
+      "Average_CPA": 2.0908631938,
+      "Revenue_per_Click": 109.3639201354,
+      "Total_Campaigns": 55555
+    },
+    {
+      "Brand": "Tira",
+      "Total_Revenue": 28453535162,
+      "Average_ROI": 2.6749709297,
+      "Total_Acquisition_Cost": 20792977.13,
+      "Average_CTR": 0.0850055984,
+      "Average_CVR": 0.5498829642,
+      "Average_CPA": 2.0316494165,
+      "Revenue_per_Click": 109.7272441381,
+      "Total_Campaigns": 55555
+    }
+  ],
+  "channel_performance": [
+    {
+      "Channel_Used": "Email",
+      "Total_Revenue": 4903318280,
+      "Average_ROI": 2.7614745565,
+      "Total_Acquisition_Cost": 3505421.66,
+      "Average_CTR": 0.085498998,
+      "Average_CVR": 0.5521666218,
+      "Average_CPA": 2.0582950656,
+      "Revenue_per_Click": 110.3205989851,
+      "Total_Campaigns": 9413
+    },
+    {
+      "Channel_Used": "Instagram",
+      "Total_Revenue": 4806483195,
+      "Average_ROI": 2.6888709677,
+      "Total_Acquisition_Cost": 3439013.82,
+      "Average_CTR": 0.0854567019,
+      "Average_CVR": 0.5511992179,
+      "Average_CPA": 2.0742060978,
+      "Revenue_per_Click": 109.3441566463,
+      "Total_Campaigns": 9300
+    },
+    {
+      "Channel_Used": "Facebook",
+      "Total_Revenue": 4747180826,
+      "Average_ROI": 2.6758751755,
+      "Total_Acquisition_Cost": 3489139.1,
+      "Average_CTR": 0.0846254842,
+      "Average_CVR": 0.5501436795,
+      "Average_CPA": 2.0347209585,
+      "Revenue_per_Click": 109.1936887564,
+      "Total_Campaigns": 9261
+    },
+    {
+      "Channel_Used": "WhatsApp",
+      "Total_Revenue": 4744417146,
+      "Average_ROI": 2.7362493184,
+      "Total_Acquisition_Cost": 3479248.18,
+      "Average_CTR": 0.084978383,
+      "Average_CVR": 0.5491095828,
+      "Average_CPA": 2.1870124944,
+      "Revenue_per_Click": 109.6882103959,
+      "Total_Campaigns": 9169
+    },
+    {
+      "Channel_Used": "Google",
+      "Total_Revenue": 4683310624,
+      "Average_ROI": 2.6420189172,
+      "Total_Acquisition_Cost": 3463969.73,
+      "Average_CTR": 0.0850083981,
+      "Average_CVR": 0.5499563072,
+      "Average_CPA": 2.0891565069,
+      "Revenue_per_Click": 109.296342549,
+      "Total_Campaigns": 9198
+    },
+    {
+      "Channel_Used": "YouTube",
+      "Total_Revenue": 4620936978,
+      "Average_ROI": 2.5640187323,
+      "Total_Acquisition_Cost": 3553707.01,
+      "Average_CTR": 0.0843727425,
+      "Average_CVR": 0.5466114702,
+      "Average_CPA": 2.2384101441,
+      "Revenue_per_Click": 108.2622414038,
+      "Total_Campaigns": 9182
+    },
+    {
+      "Channel_Used": "Instagram, YouTube",
+      "Total_Revenue": 1997849588,
+      "Average_ROI": 2.8068186583,
+      "Total_Acquisition_Cost": 1394414.19,
+      "Average_CTR": 0.0857651039,
+      "Average_CVR": 0.5493290571,
+      "Average_CPA": 1.815801875,
+      "Revenue_per_Click": 108.8294118725,
+      "Total_Campaigns": 3816
+    },
+    {
+      "Channel_Used": "Email, YouTube",
+      "Total_Revenue": 1957554765,
+      "Average_ROI": 2.7916594711,
+      "Total_Acquisition_Cost": 1331943.15,
+      "Average_CTR": 0.0850860739,
+      "Average_CVR": 0.5510917029,
+      "Average_CPA": 1.7692032671,
+      "Revenue_per_Click": 110.0015489693,
+      "Total_Campaigns": 3706
+    },
+    {
+      "Channel_Used": "Instagram, WhatsApp",
+      "Total_Revenue": 1953441702,
+      "Average_ROI": 2.7369303456,
+      "Total_Acquisition_Cost": 1378473.6,
+      "Average_CTR": 0.0859837059,
+      "Average_CVR": 0.5494295724,
+      "Average_CPA": 2.060763711,
+      "Revenue_per_Click": 110.8377158422,
+      "Total_Campaigns": 3704
+    },
+    {
+      "Channel_Used": "Facebook, YouTube",
+      "Total_Revenue": 1939753909,
+      "Average_ROI": 2.6314830736,
+      "Total_Acquisition_Cost": 1408060.49,
+      "Average_CTR": 0.0849897853,
+      "Average_CVR": 0.5481407234,
+      "Average_CPA": 2.1838906927,
+      "Revenue_per_Click": 109.4428899571,
+      "Total_Campaigns": 3722
+    },
+    {
+      "Channel_Used": "Email, WhatsApp",
+      "Total_Revenue": 1931146454,
+      "Average_ROI": 2.7192788462,
+      "Total_Acquisition_Cost": 1409055.11,
+      "Average_CTR": 0.0861285398,
+      "Average_CVR": 0.5481259833,
+      "Average_CPA": 2.0347933525,
+      "Revenue_per_Click": 110.1170921791,
+      "Total_Campaigns": 3744
+    },
+    {
+      "Channel_Used": "Email, Facebook",
+      "Total_Revenue": 1921694965,
+      "Average_ROI": 2.6748258575,
+      "Total_Acquisition_Cost": 1383888.13,
+      "Average_CTR": 0.0848617887,
+      "Average_CVR": 0.5471777173,
+      "Average_CPA": 1.8978537614,
+      "Revenue_per_Click": 108.6350684962,
+      "Total_Campaigns": 3790
+    },
+    {
+      "Channel_Used": "Facebook, WhatsApp",
+      "Total_Revenue": 1916214586,
+      "Average_ROI": 2.7564489112,
+      "Total_Acquisition_Cost": 1312537.19,
+      "Average_CTR": 0.0874030468,
+      "Average_CVR": 0.5512599567,
+      "Average_CPA": 2.0280666067,
+      "Revenue_per_Click": 109.9129813253,
+      "Total_Campaigns": 3582
+    },
+    {
+      "Channel_Used": "Email, Google",
+      "Total_Revenue": 1901656198,
+      "Average_ROI": 2.7486570358,
+      "Total_Acquisition_Cost": 1401948.8,
+      "Average_CTR": 0.0847522038,
+      "Average_CVR": 0.5503000119,
+      "Average_CPA": 2.0016496493,
+      "Revenue_per_Click": 110.1174917138,
+      "Total_Campaigns": 3738
+    },
+    {
+      "Channel_Used": "Google, Instagram",
+      "Total_Revenue": 1901247419,
+      "Average_ROI": 2.7596482138,
+      "Total_Acquisition_Cost": 1391342.24,
+      "Average_CTR": 0.0850439876,
+      "Average_CVR": 0.5505756179,
+      "Average_CPA": 2.2404582022,
+      "Revenue_per_Click": 111.2223491134,
+      "Total_Campaigns": 3667
+    },
+    {
+      "Channel_Used": "Facebook, Google",
+      "Total_Revenue": 1899323342,
+      "Average_ROI": 2.6496995708,
+      "Total_Acquisition_Cost": 1436276.8,
+      "Average_CTR": 0.0843043832,
+      "Average_CVR": 0.5495176557,
+      "Average_CPA": 2.1716110198,
+      "Revenue_per_Click": 110.413416565,
+      "Total_Campaigns": 3728
+    },
+    {
+      "Channel_Used": "Email, Instagram",
+      "Total_Revenue": 1893404674,
+      "Average_ROI": 2.7177859277,
+      "Total_Acquisition_Cost": 1409657.96,
+      "Average_CTR": 0.0853210069,
+      "Average_CVR": 0.5479727737,
+      "Average_CPA": 2.1417401371,
+      "Revenue_per_Click": 110.4554124607,
+      "Total_Campaigns": 3681
+    },
+    {
+      "Channel_Used": "Google, YouTube",
+      "Total_Revenue": 1854423732,
+      "Average_ROI": 2.6212376509,
+      "Total_Acquisition_Cost": 1386675.41,
+      "Average_CTR": 0.084596266,
+      "Average_CVR": 0.5513821742,
+      "Average_CPA": 2.0755373727,
+      "Revenue_per_Click": 110.1536441001,
+      "Total_Campaigns": 3644
+    },
+    {
+      "Channel_Used": "Google, WhatsApp",
+      "Total_Revenue": 1853327031,
+      "Average_ROI": 2.5123870282,
+      "Total_Acquisition_Cost": 1491062.3,
+      "Average_CTR": 0.0826582009,
+      "Average_CVR": 0.5483055665,
+      "Average_CPA": 2.275711014,
+      "Revenue_per_Click": 109.145527228,
+      "Total_Campaigns": 3762
+    },
+    {
+      "Channel_Used": "WhatsApp, YouTube",
+      "Total_Revenue": 1845914610,
+      "Average_ROI": 2.5989819066,
+      "Total_Acquisition_Cost": 1402395.2,
+      "Average_CTR": 0.0853473674,
+      "Average_CVR": 0.5493984326,
+      "Average_CPA": 2.0800710619,
+      "Revenue_per_Click": 107.6406631923,
+      "Total_Campaigns": 3703
+    },
+    {
+      "Channel_Used": "Facebook, Instagram",
+      "Total_Revenue": 1811638100,
+      "Average_ROI": 2.6282909802,
+      "Total_Acquisition_Cost": 1342425.81,
+      "Average_CTR": 0.0843902045,
+      "Average_CVR": 0.5482605115,
+      "Average_CPA": 1.9494030994,
+      "Revenue_per_Click": 109.2237281677,
+      "Total_Campaigns": 3581
+    },
+    {
+      "Channel_Used": "Facebook, Instagram, WhatsApp",
+      "Total_Revenue": 1485824356,
+      "Average_ROI": 2.7090931546,
+      "Total_Acquisition_Cost": 1082056.02,
+      "Average_CTR": 0.0848774276,
+      "Average_CVR": 0.5519716813,
+      "Average_CPA": 2.1355460017,
+      "Revenue_per_Click": 112.6033647926,
+      "Total_Campaigns": 2834
+    },
+    {
+      "Channel_Used": "Email, Google, Instagram",
+      "Total_Revenue": 1482792367,
+      "Average_ROI": 2.8658255897,
+      "Total_Acquisition_Cost": 1007109.94,
+      "Average_CTR": 0.0864405331,
+      "Average_CVR": 0.5542821953,
+      "Average_CPA": 1.868491661,
+      "Revenue_per_Click": 111.8552441261,
+      "Total_Campaigns": 2798
+    },
+    {
+      "Channel_Used": "Facebook, Google, Instagram",
+      "Total_Revenue": 1480216916,
+      "Average_ROI": 2.8175440451,
+      "Total_Acquisition_Cost": 1032101.57,
+      "Average_CTR": 0.0848784757,
+      "Average_CVR": 0.5524568668,
+      "Average_CPA": 1.8174180291,
+      "Revenue_per_Click": 110.8959067948,
+      "Total_Campaigns": 2838
+    },
+    {
+      "Channel_Used": "Email, Facebook, WhatsApp",
+      "Total_Revenue": 1475991185,
+      "Average_ROI": 2.6864941922,
+      "Total_Acquisition_Cost": 1053338.08,
+      "Average_CTR": 0.0855370085,
+      "Average_CVR": 0.5471391502,
+      "Average_CPA": 2.0881681284,
+      "Revenue_per_Click": 109.5533233501,
+      "Total_Campaigns": 2841
+    },
+    {
+      "Channel_Used": "Google, Instagram, YouTube",
+      "Total_Revenue": 1466440357,
+      "Average_ROI": 2.6480119424,
+      "Total_Acquisition_Cost": 1089466.04,
+      "Average_CTR": 0.0844216846,
+      "Average_CVR": 0.5464819961,
+      "Average_CPA": 2.2456408517,
+      "Revenue_per_Click": 110.4287092309,
+      "Total_Campaigns": 2847
+    },
+    {
+      "Channel_Used": "Facebook, Instagram, YouTube",
+      "Total_Revenue": 1442222544,
+      "Average_ROI": 2.7115796947,
+      "Total_Acquisition_Cost": 1063779.88,
+      "Average_CTR": 0.0843314903,
+      "Average_CVR": 0.5531097278,
+      "Average_CPA": 2.0351290418,
+      "Revenue_per_Click": 111.1022781266,
+      "Total_Campaigns": 2817
+    },
+    {
+      "Channel_Used": "Email, Google, YouTube",
+      "Total_Revenue": 1441411738,
+      "Average_ROI": 2.8382131088,
+      "Total_Acquisition_Cost": 1020199.74,
+      "Average_CTR": 0.08571404,
+      "Average_CVR": 0.5536694128,
+      "Average_CPA": 2.0769996759,
+      "Revenue_per_Click": 111.1819101757,
+      "Total_Campaigns": 2731
+    },
+    {
+      "Channel_Used": "Google, Instagram, WhatsApp",
+      "Total_Revenue": 1438102976,
+      "Average_ROI": 2.8194248742,
+      "Total_Acquisition_Cost": 992692.93,
+      "Average_CTR": 0.0859839654,
+      "Average_CVR": 0.5542389491,
+      "Average_CPA": 1.7801168897,
+      "Revenue_per_Click": 109.7222507752,
+      "Total_Campaigns": 2782
+    },
+    {
+      "Channel_Used": "Instagram, WhatsApp, YouTube",
+      "Total_Revenue": 1429069120,
+      "Average_ROI": 2.6990139335,
+      "Total_Acquisition_Cost": 1077737.33,
+      "Average_CTR": 0.084295125,
+      "Average_CVR": 0.546631668,
+      "Average_CPA": 2.1908275757,
+      "Revenue_per_Click": 108.5838425555,
+      "Total_Campaigns": 2799
+    },
+    {
+      "Channel_Used": "Facebook, Google, YouTube",
+      "Total_Revenue": 1421184666,
+      "Average_ROI": 2.7323680405,
+      "Total_Acquisition_Cost": 1040048.13,
+      "Average_CTR": 0.0841331782,
+      "Average_CVR": 0.5441527466,
+      "Average_CPA": 2.0232863773,
+      "Revenue_per_Click": 107.8867637335,
+      "Total_Campaigns": 2766
+    },
+    {
+      "Channel_Used": "Google, WhatsApp, YouTube",
+      "Total_Revenue": 1420204469,
+      "Average_ROI": 2.6136057348,
+      "Total_Acquisition_Cost": 1031947.67,
+      "Average_CTR": 0.0849085662,
+      "Average_CVR": 0.5459600806,
+      "Average_CPA": 1.7706345665,
+      "Revenue_per_Click": 109.4213530222,
+      "Total_Campaigns": 2790
+    },
+    {
+      "Channel_Used": "Email, WhatsApp, YouTube",
+      "Total_Revenue": 1415011292,
+      "Average_ROI": 2.6559454611,
+      "Total_Acquisition_Cost": 1045442.36,
+      "Average_CTR": 0.0849153548,
+      "Average_CVR": 0.5492464417,
+      "Average_CPA": 2.0396786376,
+      "Revenue_per_Click": 109.5024049635,
+      "Total_Campaigns": 2787
+    },
+    {
+      "Channel_Used": "Email, Facebook, Google",
+      "Total_Revenue": 1410697726,
+      "Average_ROI": 2.7083327345,
+      "Total_Acquisition_Cost": 1047750.83,
+      "Average_CTR": 0.0840895802,
+      "Average_CVR": 0.5481322175,
+      "Average_CPA": 2.0086426872,
+      "Revenue_per_Click": 109.4677122012,
+      "Total_Campaigns": 2783
+    },
+    {
+      "Channel_Used": "Email, Instagram, YouTube",
+      "Total_Revenue": 1410295881,
+      "Average_ROI": 2.6625990549,
+      "Total_Acquisition_Cost": 1067025.8,
+      "Average_CTR": 0.0840785804,
+      "Average_CVR": 0.5513126005,
+      "Average_CPA": 2.2229096725,
+      "Revenue_per_Click": 110.029203574,
+      "Total_Campaigns": 2751
+    },
+    {
+      "Channel_Used": "Email, Facebook, YouTube",
+      "Total_Revenue": 1407528877,
+      "Average_ROI": 2.7276780523,
+      "Total_Acquisition_Cost": 1023905.71,
+      "Average_CTR": 0.0849544556,
+      "Average_CVR": 0.5502636753,
+      "Average_CPA": 2.306477437,
+      "Revenue_per_Click": 109.4524363479,
+      "Total_Campaigns": 2752
+    },
+    {
+      "Channel_Used": "Facebook, WhatsApp, YouTube",
+      "Total_Revenue": 1402144155,
+      "Average_ROI": 2.6174368231,
+      "Total_Acquisition_Cost": 1101390.19,
+      "Average_CTR": 0.0850558925,
+      "Average_CVR": 0.5461902874,
+      "Average_CPA": 2.5769512088,
+      "Revenue_per_Click": 107.9587194131,
+      "Total_Campaigns": 2770
+    },
+    {
+      "Channel_Used": "Facebook, Google, WhatsApp",
+      "Total_Revenue": 1388145944,
+      "Average_ROI": 2.5054248134,
+      "Total_Acquisition_Cost": 1068433.06,
+      "Average_CTR": 0.0830323228,
+      "Average_CVR": 0.5513386751,
+      "Average_CPA": 1.9094787377,
+      "Revenue_per_Click": 109.7237360825,
+      "Total_Campaigns": 2813
+    },
+    {
+      "Channel_Used": "Email, Google, WhatsApp",
+      "Total_Revenue": 1388126992,
+      "Average_ROI": 2.7004050539,
+      "Total_Acquisition_Cost": 1003422.64,
+      "Average_CTR": 0.0856575602,
+      "Average_CVR": 0.5485796486,
+      "Average_CPA": 2.1052495954,
+      "Revenue_per_Click": 109.0611873147,
+      "Total_Campaigns": 2691
+    },
+    {
+      "Channel_Used": "Email, Instagram, WhatsApp",
+      "Total_Revenue": 1382543869,
+      "Average_ROI": 2.6679880775,
+      "Total_Acquisition_Cost": 1012653.14,
+      "Average_CTR": 0.0865146371,
+      "Average_CVR": 0.5495148044,
+      "Average_CPA": 2.1770084882,
+      "Revenue_per_Click": 110.2890822484,
+      "Total_Campaigns": 2684
+    },
+    {
+      "Channel_Used": "Email, Facebook, Instagram",
+      "Total_Revenue": 1378052517,
+      "Average_ROI": 2.6721518519,
+      "Total_Acquisition_Cost": 1010696.39,
+      "Average_CTR": 0.0857642966,
+      "Average_CVR": 0.5469061361,
+      "Average_CPA": 1.9793467768,
+      "Revenue_per_Click": 107.655450136,
+      "Total_Campaigns": 2700
+    }
+  ],
+  "campaign_type_performance": [
+    {
+      "Campaign_Type": "Paid Ads",
+      "Total_Revenue": 17238518867,
+      "Average_ROI": 2.71492714,
+      "Total_Acquisition_Cost": 12373170.26,
+      "Average_CTR": 0.0851028845,
+      "Average_CVR": 0.549821258,
+      "Average_CPA": 2.024411583,
+      "Revenue_per_Click": 109.9195261589,
+      "Total_Campaigns": 33283
+    },
+    {
+      "Campaign_Type": "Email",
+      "Total_Revenue": 17222575561,
+      "Average_ROI": 2.6933000926,
+      "Total_Acquisition_Cost": 12635065.72,
+      "Average_CTR": 0.0848208673,
+      "Average_CVR": 0.5511266289,
+      "Average_CPA": 2.1110469315,
+      "Revenue_per_Click": 109.9524264803,
+      "Total_Campaigns": 33493
+    },
+    {
+      "Campaign_Type": "Social Media",
+      "Total_Revenue": 17102697975,
+      "Average_ROI": 2.7081214021,
+      "Total_Acquisition_Cost": 12399462.69,
+      "Average_CTR": 0.0852772584,
+      "Average_CVR": 0.5483416765,
+      "Average_CPA": 2.0539355633,
+      "Revenue_per_Click": 109.2042889053,
+      "Total_Campaigns": 33179
+    },
+    {
+      "Campaign_Type": "Influencer",
+      "Total_Revenue": 17080750747,
+      "Average_ROI": 2.6485395338,
+      "Total_Acquisition_Cost": 12692186.38,
+      "Average_CTR": 0.0852525972,
+      "Average_CVR": 0.5483558389,
+      "Average_CPA": 2.1047608354,
+      "Revenue_per_Click": 109.0472208014,
+      "Total_Campaigns": 33503
+    },
+    {
+      "Campaign_Type": "SEO",
+      "Total_Revenue": 17005702921,
+      "Average_ROI": 2.6882554883,
+      "Total_Acquisition_Cost": 12581968.28,
+      "Average_CTR": 0.0846624767,
+      "Average_CVR": 0.5503560097,
+      "Average_CPA": 2.0863268448,
+      "Revenue_per_Click": 110.0795107014,
+      "Total_Campaigns": 33207
+    }
+  ],
+  "customer_segment_performance": [
+    {
+      "Customer_Segment": "College Students",
+      "Total_Revenue": 17243247161,
+      "Average_ROI": 2.7072445054,
+      "Total_Acquisition_Cost": 12562498.41,
+      "Average_CTR": 0.0847887638,
+      "Average_CVR": 0.5494054641,
+      "Average_CPA": 2.0505195761,
+      "Revenue_per_Click": 110.1066186701,
+      "Total_Campaigns": 33533
+    },
+    {
+      "Customer_Segment": "Youth",
+      "Total_Revenue": 17225401651,
+      "Average_ROI": 2.689275263,
+      "Total_Acquisition_Cost": 12559305.31,
+      "Average_CTR": 0.0847623492,
+      "Average_CVR": 0.5507167089,
+      "Average_CPA": 2.0257437241,
+      "Revenue_per_Click": 109.6434261098,
+      "Total_Campaigns": 33557
+    },
+    {
+      "Customer_Segment": "Working Women",
+      "Total_Revenue": 17215043588,
+      "Average_ROI": 2.7110460001,
+      "Total_Acquisition_Cost": 12512946.69,
+      "Average_CTR": 0.0855553431,
+      "Average_CVR": 0.5489418069,
+      "Average_CPA": 2.0353275945,
+      "Revenue_per_Click": 109.2106962078,
+      "Total_Campaigns": 33413
+    },
+    {
+      "Customer_Segment": "Tier 2 City Customers",
+      "Total_Revenue": 17072782747,
+      "Average_ROI": 2.6919984286,
+      "Total_Acquisition_Cost": 12529120.28,
+      "Average_CTR": 0.0850447078,
+      "Average_CVR": 0.5496505931,
+      "Average_CPA": 2.159981064,
+      "Revenue_per_Click": 109.8103593291,
+      "Total_Campaigns": 33091
+    },
+    {
+      "Customer_Segment": "Premium Shoppers",
+      "Total_Revenue": 16893770924,
+      "Average_ROI": 2.6528426718,
+      "Total_Acquisition_Cost": 12517982.64,
+      "Average_CTR": 0.0849667845,
+      "Average_CVR": 0.5492835682,
+      "Average_CPA": 2.1108367468,
+      "Revenue_per_Click": 109.4280600655,
+      "Total_Campaigns": 33071
+    }
+  ],
+  "monthly_performance": [
+    {
+      "YearMonth": "2024-07",
+      "Total_Revenue": 7745900663,
+      "Average_ROI": 2.7459054272,
+      "Total_Acquisition_Cost": 5509199.04,
+      "Total_Campaigns": 14888
+    },
+    {
+      "YearMonth": "2024-08",
+      "Total_Revenue": 7755913972,
+      "Average_ROI": 2.6916144305,
+      "Total_Acquisition_Cost": 5665449.57,
+      "Total_Campaigns": 14996
+    },
+    {
+      "YearMonth": "2024-09",
+      "Total_Revenue": 7387851403,
+      "Average_ROI": 2.6598094581,
+      "Total_Acquisition_Cost": 5539897.01,
+      "Total_Campaigns": 14485
+    },
+    {
+      "YearMonth": "2024-10",
+      "Total_Revenue": 7661906188,
+      "Average_ROI": 2.6632121821,
+      "Total_Acquisition_Cost": 5690892.78,
+      "Total_Campaigns": 14940
+    },
+    {
+      "YearMonth": "2024-11",
+      "Total_Revenue": 7414457262,
+      "Average_ROI": 2.6717466371,
+      "Total_Acquisition_Cost": 5483175.15,
+      "Total_Campaigns": 14422
+    },
+    {
+      "YearMonth": "2024-12",
+      "Total_Revenue": 7735535225,
+      "Average_ROI": 2.7214204621,
+      "Total_Acquisition_Cost": 5671964.59,
+      "Total_Campaigns": 14974
+    },
+    {
+      "YearMonth": "2025-01",
+      "Total_Revenue": 7649153344,
+      "Average_ROI": 2.6985816464,
+      "Total_Acquisition_Cost": 5559451.87,
+      "Total_Campaigns": 14820
+    },
+    {
+      "YearMonth": "2025-02",
+      "Total_Revenue": 7038346030,
+      "Average_ROI": 2.7579887897,
+      "Total_Acquisition_Cost": 4997150.98,
+      "Total_Campaigns": 13559
+    },
+    {
+      "YearMonth": "2025-03",
+      "Total_Revenue": 7513378492,
+      "Average_ROI": 2.7050689253,
+      "Total_Acquisition_Cost": 5431263.04,
+      "Total_Campaigns": 14581
+    },
+    {
+      "YearMonth": "2025-04",
+      "Total_Revenue": 7353160452,
+      "Average_ROI": 2.6354516792,
+      "Total_Acquisition_Cost": 5499557.73,
+      "Total_Campaigns": 14590
+    },
+    {
+      "YearMonth": "2025-05",
+      "Total_Revenue": 7620354088,
+      "Average_ROI": 2.6613433235,
+      "Total_Acquisition_Cost": 5622422.54,
+      "Total_Campaigns": 14948
+    },
+    {
+      "YearMonth": "2025-06",
+      "Total_Revenue": 2774288952,
+      "Average_ROI": 2.6577151227,
+      "Total_Acquisition_Cost": 2011429.03,
+      "Total_Campaigns": 5462
+    }
+  ],
+  "plots": {
+    "01_revenue_distribution": "results/plots/eda/01_revenue_distribution.png",
+    "02_roi_distribution": "results/plots/eda/02_roi_distribution.png",
+    "03_revenue_by_brand": "results/plots/eda/03_revenue_by_brand.png",
+    "04_average_roi_by_brand": "results/plots/eda/04_average_roi_by_brand.png",
+    "05_revenue_by_channel_used": "results/plots/eda/05_revenue_by_channel_used.png",
+    "06_average_roi_by_channel_used": "results/plots/eda/06_average_roi_by_channel_used.png",
+    "07_revenue_by_campaign_type": "results/plots/eda/07_revenue_by_campaign_type.png",
+    "08_revenue_by_customer_segment": "results/plots/eda/08_revenue_by_customer_segment.png",
+    "09_revenue_trend_by_month": "results/plots/eda/09_revenue_trend_by_month.png",
+    "10_campaign_count_by_month": "results/plots/eda/10_campaign_count_by_month.png",
+    "11_correlation_heatmap": "results/plots/eda/11_correlation_heatmap.png",
+    "12_acquisition_cost_vs_revenue_scatter": "results/plots/eda/12_acquisition_cost_vs_revenue_scatter.png",
+    "13_ctr_by_channel_used": "results/plots/eda/13_ctr_by_channel_used.png",
+    "14_cvr_by_channel_used": "results/plots/eda/14_cvr_by_channel_used.png",
+    "15_cpa_by_campaign_type": "results/plots/eda/15_cpa_by_campaign_type.png",
+    "16_revenue_per_click_by_brand": "results/plots/eda/16_revenue_per_click_by_brand.png",
+    "17_heatmap_channel_campaign_type_revenue": "results/plots/eda/17_heatmap_channel_campaign_type_revenue.png",
+    "18_boxplot_roi_by_brand": "results/plots/eda/18_boxplot_roi_by_brand.png",
+    "19_acquisition_cost_by_brand": "results/plots/business/19_acquisition_cost_by_brand.png",
+    "20_average_cpa_by_brand": "results/plots/business/20_average_cpa_by_brand.png",
+    "21_ctr_cvr_by_brand": "results/plots/business/21_ctr_cvr_by_brand.png",
+    "22_average_roi_by_campaign_type": "results/plots/business/22_average_roi_by_campaign_type.png",
+    "23_campaign_count_by_campaign_type": "results/plots/business/23_campaign_count_by_campaign_type.png",
+    "24_roi_by_customer_segment": "results/plots/business/24_roi_by_customer_segment.png",
+    "25_cvr_by_customer_segment": "results/plots/business/25_cvr_by_customer_segment.png",
+    "26_heatmap_brand_customer_segment_revenue": "results/plots/business/26_heatmap_brand_customer_segment_revenue.png",
+    "27_roi_trend_by_month": "results/plots/business/27_roi_trend_by_month.png",
+    "28_acquisition_cost_trend_by_month": "results/plots/business/28_acquisition_cost_trend_by_month.png",
+    "29_heatmap_brand_channel_revenue": "results/plots/business/29_heatmap_brand_channel_revenue.png",
+    "30_cpa_by_channel_used": "results/plots/business/30_cpa_by_channel_used.png"
+  },
+  "caveats": [
+    "D\u1eef li\u1ec7u th\u00e1ng 06/2025 ch\u1ec9 \u0111\u1ebfn ng\u00e0y 24/06/2025 n\u00ean kh\u00f4ng so s\u00e1nh tr\u1ef1c ti\u1ebfp t\u1ed5ng th\u00e1ng v\u1edbi c\u00e1c th\u00e1ng \u0111\u1ea7y \u0111\u1ee7.",
+    "Ch\u00eanh l\u1ec7ch KPI gi\u1eefa c\u00e1c brand v\u00e0 nhi\u1ec1u nh\u00f3m kh\u00e1 nh\u1ecf; c\u1ea7n ki\u1ec3m \u0111\u1ecbnh th\u00eam tr\u01b0\u1edbc khi thay \u0111\u1ed5i ng\u00e2n s\u00e1ch l\u1edbn.",
+    "Ph\u00e2n t\u00edch hi\u1ec7n t\u1ea1i m\u00f4 t\u1ea3 quan h\u1ec7, kh\u00f4ng ch\u1ee9ng minh quan h\u1ec7 nh\u00e2n qu\u1ea3."
+  ]
+}

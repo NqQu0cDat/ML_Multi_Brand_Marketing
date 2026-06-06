@@ -2,140 +2,73 @@
 
 ## Mục đích
 
-File này dùng để quy định cách AI hỗ trợ code trong project Machine Learning này.
+File này quy định cách AI hỗ trợ code trong project:
 
-Project: Multi-Brand Marketing_ML
-Mục tiêu: phân tích và dự đoán hiệu quả chiến dịch marketing của nhiều brand.
+**Multi-Brand Marketing Campaign Performance Analysis**
 
----
+Project tập trung vào Data Analysis / EDA / Business Analytics. Chưa triển khai Machine Learning nếu người dùng chưa yêu cầu thay đổi phạm vi.
 
 ## Quy tắc viết code
-
-### Ưu tiên cao nhất
 
 - Tên biến, tên hàm, tên class: dùng tiếng Việt không dấu.
 - Comment: dùng tiếng Việt có dấu.
 - Ưu tiên `snake_case` cho tên biến và tên hàm.
-- Tên cột dữ liệu gốc được giữ nguyên theo CSV nếu cần để tránh sai schema.
-- Tên file có thể giữ tiếng Anh nếu đã có trong project, nhưng code mới bên trong file phải theo quy tắc trên.
-
-Ví dụ đúng:
-
-```python
-doanh_thu = 1000000
-chi_phi_quang_cao = 250000
-diem_tuong_tac = 85
-
-def tinh_roi(doanh_thu, chi_phi_quang_cao):
-    # Tính ROI dựa trên doanh thu và chi phí quảng cáo
-    return (doanh_thu - chi_phi_quang_cao) / chi_phi_quang_cao
-```
-
-Ví dụ không ưu tiên:
-
-```python
-revenue = 1000000
-ad_cost = 250000
-
-def calculate_roi(revenue, ad_cost):
-    return (revenue - ad_cost) / ad_cost
-```
-
----
-
-## Quy tắc làm việc với dữ liệu
-
-- Không train model trực tiếp từ `data/raw`.
-- Luôn tạo dữ liệu sạch trong `data/processed` trước khi EDA hoặc modeling.
+- Giữ nguyên tên cột dữ liệu gốc để tránh sai schema.
 - Không xóa dữ liệu bất thường nếu chưa có lý do rõ ràng.
 - Các dòng bị loại phải có báo cáo số lượng và lý do.
-- `ROI` âm được xem là campaign lỗ, không tự động coi là lỗi dữ liệu.
-- Các chỉ số funnel cần được kiểm tra:
-  - `Clicks <= Impressions`
-  - `Leads <= Clicks`
-  - `Conversions <= Leads`
-
----
 
 ## Workflow chuẩn
-
-Thứ tự làm việc mặc định:
 
 ```text
 Raw data
 -> Data cleaning
 -> Feature engineering
--> EDA
--> Modeling
--> Evaluation
+-> EDA / KPI analysis
+-> Business insights
+-> Recommendations
 -> Report / dashboard
 ```
 
-Không nhảy sang modeling nếu chưa hoàn tất cleaning và feature engineering.
-
----
-
 ## Agent: DataCleaner
 
-### Mục đích
-
-Làm sạch dữ liệu campaign từ nhiều brand.
-
-### Input
-
+Input:
 ```text
 data/raw/*.csv
 ```
 
-### Output
-
+Output:
 ```text
 data/processed/marketing_campaigns_clean.csv
 results/metrics/data_cleaning_report.json
 ```
 
-### Nhiệm vụ
-
-- Gộp dữ liệu từ nhiều brand.
-- Thêm cột `Brand`.
-- Chuẩn hóa kiểu dữ liệu.
-- Parse cột `Date`.
-- Kiểm tra missing values.
-- Kiểm tra duplicate rows và duplicate `Campaign_ID`.
-- Chuẩn hóa `Channel_Used` để các tổ hợp kênh khác thứ tự được gom cùng nhóm.
-- Kiểm tra logic funnel.
-- Xuất báo cáo cleaning.
-
----
+Nhiệm vụ:
+- Gộp dữ liệu và thêm `Brand`.
+- Chuẩn hóa kiểu dữ liệu, ngày và channel.
+- Kiểm tra missing, duplicate và logic funnel.
+- Giữ ROI âm vì đây có thể là campaign lỗ.
 
 ## Agent: FeatureEngineer
 
-### Mục đích
-
-Tạo feature marketing từ dữ liệu sạch.
-
-### Input
-
+Input:
 ```text
 data/processed/marketing_campaigns_clean.csv
 ```
 
-### Output
-
+Output:
 ```text
 data/processed/marketing_campaigns_features.csv
 results/metrics/feature_engineering_report.json
 ```
 
-### Feature cần tạo
-
+Feature chính:
 ```text
-CTR = Clicks / Impressions
-Lead_Rate = Leads / Clicks
-Conversion_Rate = Conversions / Leads
-Revenue_per_Conversion = Revenue / Conversions
-Cost_per_Conversion = Acquisition_Cost / Conversions
-Revenue_per_Click = Revenue / Clicks
+CTR
+Lead_Rate
+Conversion_Rate
+Revenue_per_Conversion
+Cost_per_Conversion
+Revenue_per_Click
 Year
 Month
 Day
@@ -143,73 +76,45 @@ DayOfWeek
 Quarter
 ```
 
----
-
 ## Agent: EDAAnalyst
 
-### Mục đích
-
-Phân tích dữ liệu để hiểu hiệu quả chiến dịch theo brand, channel, audience và campaign type.
-
-### Input
-
+Input:
 ```text
 data/processed/marketing_campaigns_features.csv
 ```
 
-### Output
-
+Output:
 ```text
 notebooks/01_eda.ipynb
-results/plots/
+results/plots/eda/
 results/metrics/eda_summary.json
 ```
 
-### Nhiệm vụ
+## Agent: BusinessAnalyst
 
-- So sánh hiệu quả giữa các brand.
-- Phân tích phân phối `Revenue`, `ROI`, `Conversions`, `Engagement_Score`.
-- Phân tích channel, audience, language, campaign type.
-- Tìm outlier đáng chú ý.
-- Rút insight phục vụ modeling.
-
----
-
-## Agent: ModelTrainer
-
-### Mục đích
-
-Train và đánh giá model dự đoán hiệu quả campaign.
-
-### Input
-
+Input:
 ```text
 data/processed/marketing_campaigns_features.csv
-config/config.yaml
+results/metrics/eda_summary.json
 ```
 
-### Output
-
+Output:
 ```text
-models/
-results/metrics/model_metrics.json
-results/predictions/
+notebooks/02_business_analysis.ipynb
+results/plots/business/
+results/metrics/business_summary.json
+reports/marketing_campaign_analysis_report.md
 ```
 
-### Nhiệm vụ
-
-- Xác định target phù hợp, mặc định ưu tiên `ROI`.
-- Tách train/test.
-- Train baseline model.
-- So sánh Linear Regression, Random Forest, XGBoost nếu phù hợp.
-- Lưu model tốt nhất.
-- Lưu metrics và prediction.
-
----
+Nhiệm vụ:
+- Tổng hợp KPI từ kết quả EDA.
+- Phân tích brand, channel, campaign type, customer segment và thời gian theo góc nhìn business.
+- Tổng hợp KPI, insight, caveat và business recommendations.
+- Không diễn giải tương quan như quan hệ nhân quả.
+- Không so sánh trực tiếp tháng chưa hoàn chỉnh với tháng đầy đủ.
+- Không ghi đè `notebooks/01_eda.ipynb` hoặc `results/metrics/eda_summary.json`.
 
 ## Quy tắc báo cáo sau mỗi bước
-
-Sau mỗi bước chính, AI cần báo cáo ngắn gọn:
 
 ```text
 Agent:
@@ -220,5 +125,3 @@ Kết quả chính:
 File đã tạo/cập nhật:
 Bước tiếp theo:
 ```
-
-Nếu có dữ liệu bị loại hoặc giả định quan trọng, phải nói rõ.

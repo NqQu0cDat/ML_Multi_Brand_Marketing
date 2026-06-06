@@ -1,0 +1,85 @@
+{
+  "rows": 166665,
+  "columns": 29,
+  "plot_count": 18,
+  "plots": {
+    "01_revenue_distribution": "results/plots/eda/01_revenue_distribution.png",
+    "02_roi_distribution": "results/plots/eda/02_roi_distribution.png",
+    "03_revenue_by_brand": "results/plots/eda/03_revenue_by_brand.png",
+    "04_average_roi_by_brand": "results/plots/eda/04_average_roi_by_brand.png",
+    "05_revenue_by_channel_used": "results/plots/eda/05_revenue_by_channel_used.png",
+    "06_average_roi_by_channel_used": "results/plots/eda/06_average_roi_by_channel_used.png",
+    "07_revenue_by_campaign_type": "results/plots/eda/07_revenue_by_campaign_type.png",
+    "08_revenue_by_customer_segment": "results/plots/eda/08_revenue_by_customer_segment.png",
+    "09_revenue_trend_by_month": "results/plots/eda/09_revenue_trend_by_month.png",
+    "10_campaign_count_by_month": "results/plots/eda/10_campaign_count_by_month.png",
+    "11_correlation_heatmap": "results/plots/eda/11_correlation_heatmap.png",
+    "12_acquisition_cost_vs_revenue_scatter": "results/plots/eda/12_acquisition_cost_vs_revenue_scatter.png",
+    "13_ctr_by_channel_used": "results/plots/eda/13_ctr_by_channel_used.png",
+    "14_cvr_by_channel_used": "results/plots/eda/14_cvr_by_channel_used.png",
+    "15_cpa_by_campaign_type": "results/plots/eda/15_cpa_by_campaign_type.png",
+    "16_revenue_per_click_by_brand": "results/plots/eda/16_revenue_per_click_by_brand.png",
+    "17_heatmap_channel_campaign_type_revenue": "results/plots/eda/17_heatmap_channel_campaign_type_revenue.png",
+    "18_boxplot_roi_by_brand": "results/plots/eda/18_boxplot_roi_by_brand.png"
+  },
+  "top_revenue_brand": [
+    {
+      "Brand": "Nykaa",
+      "Revenue": 28656364282
+    }
+  ],
+  "top_average_roi_brand": [
+    {
+      "Brand": "Nykaa",
+      "ROI": 2.713806858068581
+    }
+  ],
+  "top_revenue_channel": [
+    {
+      "Channel_Used": "Email",
+      "Revenue": 4903318280
+    }
+  ],
+  "top_average_roi_channel": [
+    {
+      "Channel_Used": "Email, Google, Instagram",
+      "ROI": 2.8658255897069336
+    }
+  ],
+  "top_revenue_campaign_type": [
+    {
+      "Campaign_Type": "Paid Ads",
+      "Revenue": 17238518867
+    }
+  ],
+  "top_revenue_customer_segment": [
+    {
+      "Customer_Segment": "College Students",
+      "Revenue": 17243247161
+    }
+  ],
+  "top_ctr_channel": [
+    {
+      "Channel_Used": "Facebook, WhatsApp",
+      "CTR": 0.0874030467944052
+    }
+  ],
+  "top_cvr_channel": [
+    {
+      "Channel_Used": "Email, Google, Instagram",
+      "Conversion_Rate": 0.5542821953265452
+    }
+  ],
+  "lowest_cpa_campaign_type": [
+    {
+      "Campaign_Type": "Paid Ads",
+      "Cost_per_Conversion": 2.02441158300627
+    }
+  ],
+  "top_revenue_per_click_brand": [
+    {
+      "Brand": "Nykaa",
+      "Revenue_per_Click": 109.82966483657533
+    }
+  ]
+}

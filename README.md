@@ -1,68 +1,74 @@
-# Multi-Brand Marketing ML Project
+# Multi-Brand Marketing Campaign Performance Analysis
 
-Dự án Machine Learning để phân tích và dự đoán hiệu suất chiến dịch marketing của các thương hiệu: Nykaa, Purplle, và Tira.
+Phân tích hiệu quả chiến dịch marketing của Nykaa, Purplle và Tira nhằm đánh giá KPI, tìm business insight và đề xuất hành động.
 
-## Cấu trúc Project
+## Loại bài toán
 
-```
-├── data/
-│   ├── raw/                          # Dữ liệu thô từ nguồn
-│   │   ├── nykaa_campaign_data.csv
-│   │   ├── purplle_campaign_data.csv
-│   │   └── tira_campaign_data.csv
-│   └── processed/                    # Dữ liệu đã xử lý
-├── notebooks/                        # Jupyter notebooks
-│   ├── 01_EDA.ipynb                 # Exploratory Data Analysis
-│   ├── 02_preprocessing.ipynb       # Xử lý dữ liệu
-│   └── 03_modeling.ipynb            # Xây dựng mô hình
-├── src/                              # Source code
-│   ├── models/                       # Model training
-│   │   ├── __init__.py
-│   │   ├── train.py
-│   │   └── predict.py
-│   └── utils/                        # Utility functions
-│       ├── __init__.py
-│       ├── data_loader.py
-│       ├── preprocessing.py
-│       └── visualization.py
-├── models/                           # Saved trained models
-├── results/                          # Output results
-│   ├── plots/
-│   ├── metrics/
-│   └── predictions/
-├── config/                           # Configuration files
-│   └── config.yaml
-├── requirements.txt                  # Python dependencies
-├── .gitignore                        # Git ignore file
-└── README.md                         # Project documentation
+Đây là project **Data Analysis / EDA / Business Analytics**. Phạm vi hiện tại chưa sử dụng Machine Learning.
+
+## Mục tiêu
+
+- So sánh Revenue, ROI, Acquisition Cost, CTR, CVR và CPA giữa các brand.
+- Xác định channel và campaign type hiệu quả.
+- Phân tích customer segment mang lại giá trị cao.
+- Theo dõi xu hướng campaign theo tháng.
+- Đưa ra business recommendations dựa trên dữ liệu.
+
+## Workflow
+
+```text
+Raw data
+-> Data cleaning
+-> Feature engineering
+-> EDA / KPI analysis
+-> Business insights
+-> Recommendations
+-> Report / dashboard
 ```
 
-## Chuẩn bị
+## Cấu trúc chính
 
-### 1. Cài đặt Dependencies
+```text
+data/raw/                                      Dữ liệu campaign gốc
+data/processed/marketing_campaigns_clean.csv   Dữ liệu đã làm sạch
+data/processed/marketing_campaigns_features.csv Dữ liệu có feature marketing
+notebooks/01_eda.ipynb                         Notebook EDA khám phá dữ liệu
+notebooks/02_business_analysis.ipynb            Notebook phân tích business
+results/plots/eda/                             Biểu đồ 01-18 của EDA
+results/plots/business/                        Biểu đồ 19-30 của Business Analysis
+results/metrics/eda_summary.json               Summary EDA
+results/metrics/business_summary.json          KPI và bảng tổng hợp business
+reports/marketing_campaign_analysis_report.md  Báo cáo business cuối cùng
+src/clean_data.py                              Chạy data cleaning
+src/create_features.py                         Chạy feature engineering
+src/run_eda.py                                 Tạo biểu đồ EDA ban đầu
+src/build_business_analysis.py                 Tạo business analysis và report
+```
+
+## Chạy project
+
 ```bash
-pip install -r requirements.txt
+venv/bin/python src/clean_data.py
+venv/bin/python src/create_features.py
+venv/bin/python src/run_eda.py
+venv/bin/python src/build_business_analysis.py
 ```
 
-### 2. Cấu trúc dữ liệu
-- Đặt CSV files vào `data/raw/`
-- Dữ liệu được xử lý sẽ lưu vào `data/processed/`
+## KPI chính
 
-### 3. Workflow
-1. **EDA (Exploratory Data Analysis)**: Phân tích dữ liệu ban đầu
-2. **Preprocessing**: Xử lý missing values, feature engineering
-3. **Modeling**: Xây dựng và huấn luyện mô hình
-4. **Evaluation**: Đánh giá hiệu suất
-5. **Prediction**: Dự đoán trên dữ liệu mới
+- Total Revenue
+- Average ROI
+- Total Acquisition Cost
+- Average CTR
+- Average CVR
+- Average CPA
+- Total Campaigns
+- Revenue per Click
 
-## Công nghệ sử dụng
-- Python 3.x
-- Pandas: Xử lý dữ liệu
-- NumPy: Tính toán
-- Scikit-learn: Machine Learning models
-- Matplotlib/Seaborn: Visualization
-- Jupyter: Interactive notebooks
+## Deliverables
 
-## Bắt đầu
-
-Xem `notebooks/01_EDA.ipynb` để bắt đầu phân tích dữ liệu.
+- [Notebook EDA](notebooks/01_eda.ipynb)
+- [Notebook Business Analysis](notebooks/02_business_analysis.ipynb)
+- [EDA Summary](results/metrics/eda_summary.json)
+- [Business Summary](results/metrics/business_summary.json)
+- [Marketing Campaign Analysis Report](reports/marketing_campaign_analysis_report.md)
