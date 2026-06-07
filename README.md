@@ -72,3 +72,16 @@ venv/bin/python src/build_business_analysis.py
 - [EDA Summary](results/metrics/eda_summary.json)
 - [Business Summary](results/metrics/business_summary.json)
 - [Marketing Campaign Analysis Report](reports/marketing_campaign_analysis_report.md)
+
+## Streamlit Dashboard
+
+Dashboard theo dõi KPI, hiệu quả theo brand/channel/campaign type/segment, xu hướng tháng, EDA plots và business report.
+
+Cài dependencies và chạy app:
+
+```bash
+venv/bin/python -m pip install -r requirements.txt
+venv/bin/python -m streamlit run app/streamlit_app.py
+```
+
+App tự tìm CSV trong `data/processed/`, ưu tiên file có chữ `features` trong tên.

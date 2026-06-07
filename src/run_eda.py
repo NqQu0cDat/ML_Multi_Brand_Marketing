@@ -259,11 +259,11 @@ du_lieu.shape
         "cells": cac_cell,
         "metadata": {
             "kernelspec": {
-                "display_name": "Python 3",
+                "display_name": "Multi-Brand Marketing (venv)",
                 "language": "python",
-                "name": "python3",
+                "name": "multi_brand_marketing",
             },
-            "language_info": {"name": "python", "pygments_lexer": "ipython3"},
+            "language_info": {"name": "python", "version": "3.12", "pygments_lexer": "ipython3"},
         },
         "nbformat": 4,
         "nbformat_minor": 5,
