@@ -61,6 +61,14 @@ CAC_COT_KHONG_AM = [
     "Engagement_Score",
 ]
 
+KHOA_DINH_DANH_CAP_DONG = [
+    "Brand",
+    "Campaign_ID",
+    "Date",
+    "Channel_Used",
+    "Customer_Segment",
+]
+
 
 def suy_ra_ten_brand(duong_dan_tep: str | Path) -> str:
     """Suy ra tên brand hiển thị từ tên file CSV thô."""
@@ -133,7 +141,16 @@ def lam_sach_du_lieu_chien_dich(
     )
 
     du_lieu_sach = du_lieu_sach.drop_duplicates()
-    du_lieu_sach = du_lieu_sach.drop_duplicates(subset=["Campaign_ID"], keep="first")
+    duplicate_row_keys_before = int(
+        du_lieu_sach.duplicated(
+            subset=KHOA_DINH_DANH_CAP_DONG,
+            keep=False,
+        ).sum()
+    )
+    du_lieu_sach = du_lieu_sach.drop_duplicates(
+        subset=KHOA_DINH_DANH_CAP_DONG,
+        keep="first",
+    )
 
     dong_loi = (
         du_lieu_sach[CAC_COT_BAT_BUOC + ["Brand"]].isna().any(axis=1)
@@ -158,6 +175,14 @@ def lam_sach_du_lieu_chien_dich(
             "rows_removed": int(bao_cao["rows_before"] - len(du_lieu_sach)),
             "invalid_rows_removed": int(len(cac_dong_loi)),
             "missing_after": du_lieu_sach.isna().sum().astype(int).to_dict(),
+            "row_identity_key": KHOA_DINH_DANH_CAP_DONG,
+            "duplicate_row_keys_before": duplicate_row_keys_before,
+            "duplicate_row_keys_after": int(
+                du_lieu_sach.duplicated(
+                    subset=KHOA_DINH_DANH_CAP_DONG,
+                    keep=False,
+                ).sum()
+            ),
             "duplicate_campaign_ids_after": int(
                 du_lieu_sach["Campaign_ID"].duplicated().sum()
             ),

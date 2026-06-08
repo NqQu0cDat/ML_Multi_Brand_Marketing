@@ -45,6 +45,15 @@
     "Date": 0,
     "Brand": 0
   },
+  "row_identity_key": [
+    "Brand",
+    "Campaign_ID",
+    "Date",
+    "Channel_Used",
+    "Customer_Segment"
+  ],
+  "duplicate_row_keys_before": 0,
+  "duplicate_row_keys_after": 0,
   "duplicate_campaign_ids_after": 0,
   "raw_channel_categories": 156,
   "clean_channel_categories": 41,
