@@ -125,3 +125,28 @@ Kết quả chính:
 File đã tạo/cập nhật:
 Bước tiếp theo:
 ```
+
+
+## Agent: RevenuePredictionModeler
+
+Input:
+```text
+data/processed/marketing_campaigns_features.csv
+```
+
+Output:
+```text
+models/revenue_prediction/
+results/metrics/revenue_prediction_summary.json
+results/plots/ml/
+notebooks/03_revenue_prediction.ipynb
+reports/revenue_prediction_report.md
+```
+
+Nhiệm vụ:
+- Train 2 scenario model: pre-campaign và after-funnel.
+- Target là `Revenue`, train bằng `log1p(Revenue)` và predict ngược bằng `expm1()`.
+- Không dùng `ROI`, `Revenue_per_Conversion`, `Revenue_per_Click` hoặc feature được tính trực tiếp từ Revenue.
+- Pre-campaign model không dùng funnel metrics.
+- After-funnel model phải được ghi rõ là late-stage prediction.
+- Streamlit chỉ load model đã train, không train trong app.

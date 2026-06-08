@@ -5,9 +5,12 @@ from __future__ import annotations
 import json
 import re
 from pathlib import Path
-from typing import Iterable
+from typing import Any, Iterable
 
+import joblib
+import numpy as np
 import pandas as pd
+from pandas.api.types import is_numeric_dtype
 import plotly.express as px
 import streamlit as st
 
@@ -19,6 +22,11 @@ DUONG_DAN_TONG_HOP = THU_MUC_GOC / "results" / "metrics" / "eda_summary.json"
 DUONG_DAN_BAO_CAO = (
     THU_MUC_GOC / "reports" / "marketing_campaign_analysis_report.md"
 )
+THU_MUC_MODEL_ML = THU_MUC_GOC / "models" / "revenue_prediction"
+DUONG_DAN_METADATA_ML = THU_MUC_MODEL_ML / "model_metadata.json"
+DUONG_DAN_SUMMARY_ML = (
+    THU_MUC_GOC / "results" / "metrics" / "revenue_prediction_summary.json"
+)
 
 CAC_KPI = {
     "Tổng doanh thu": ("Revenue", "sum", "money"),
@@ -29,6 +37,16 @@ CAC_KPI = {
     "CPA trung bình": ("Cost_per_Conversion", "mean", "decimal"),
     "Tổng số chiến dịch": ("Campaign_ID", "count", "integer"),
     "Doanh thu mỗi lượt nhấp": ("Revenue_per_Click", "mean", "decimal"),
+}
+
+TEN_SCENARIO_ML = {
+    "pre_campaign": "Pre-campaign",
+    "after_funnel": "After-funnel",
+}
+
+MO_TA_SCENARIO_ML = {
+    "pre_campaign": "Dự đoán Revenue trước khi campaign chạy, phục vụ lập kế hoạch ngân sách.",
+    "after_funnel": "Late-stage prediction khi đã có funnel metrics, không dùng cho planning trước campaign.",
 }
 
 
@@ -59,6 +77,10 @@ def tai_du_lieu(duong_dan: str) -> pd.DataFrame:
             du_lieu[cot_moi] = du_lieu[tu_so].div(
                 du_lieu[mau_so].where(du_lieu[mau_so] != 0)
             ).fillna(0)
+    if "Conversion_Rate" not in du_lieu.columns and "CVR" in du_lieu.columns:
+        du_lieu["Conversion_Rate"] = du_lieu["CVR"]
+    if "Cost_per_Conversion" not in du_lieu.columns and "CPA" in du_lieu.columns:
+        du_lieu["Cost_per_Conversion"] = du_lieu["CPA"]
     return du_lieu
 
 
@@ -73,6 +95,24 @@ def tai_tong_hop() -> dict:
         return {}
 
 
+@st.cache_data(show_spinner=False)
+def tai_json_an_toan(duong_dan: str) -> dict[str, Any]:
+    """Đọc JSON an toàn cho dashboard."""
+    tep = Path(duong_dan)
+    if not tep.exists():
+        return {}
+    try:
+        return json.loads(tep.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError):
+        return {}
+
+
+@st.cache_resource(show_spinner=False)
+def tai_model_ml(duong_dan: str) -> Any:
+    """Tải model ML đã train."""
+    return joblib.load(duong_dan)
+
+
 def dinh_dang_so(gia_tri: float, kieu: str) -> str:
     """Định dạng KPI để dễ đọc."""
     if pd.isna(gia_tri):
@@ -84,6 +124,13 @@ def dinh_dang_so(gia_tri: float, kieu: str) -> str:
     if kieu == "integer":
         return f"{gia_tri:,.0f}"
     return f"{gia_tri:,.3f}"
+
+
+def dinh_dang_tien(gia_tri: float) -> str:
+    """Định dạng tiền cho kết quả dự đoán."""
+    if pd.isna(gia_tri):
+        return "N/A"
+    return f"{gia_tri:,.0f}"
 
 
 def tinh_kpi(du_lieu: pd.DataFrame) -> dict[str, str]:
@@ -299,19 +346,146 @@ def hien_thi_bao_cao() -> None:
     st.markdown(noi_dung)
 
 
+def lay_gia_tri_mac_dinh(du_lieu: pd.DataFrame, cot: str) -> float:
+    """Lấy median làm giá trị mặc định cho input số."""
+    if cot not in du_lieu.columns:
+        return 0.0
+    gia_tri = pd.to_numeric(du_lieu[cot], errors="coerce").median()
+    if pd.isna(gia_tri):
+        return 0.0
+    return float(gia_tri)
+
+
+def lay_options_categorical(du_lieu: pd.DataFrame, cot: str) -> list[str]:
+    """Lấy options categorical từ dataset."""
+    if cot not in du_lieu.columns:
+        return [""]
+    options = sorted(du_lieu[cot].dropna().astype(str).unique().tolist())
+    return options if options else [""]
+
+
+def tao_form_du_doan_ml(
+    du_lieu: pd.DataFrame,
+    feature_columns: list[str],
+    scenario: str,
+) -> pd.DataFrame:
+    """Tạo form nhập feature và trả về một dòng dữ liệu predict."""
+    numeric_features = [
+        cot for cot in feature_columns if cot in du_lieu.columns and is_numeric_dtype(du_lieu[cot])
+    ]
+    categorical_features = [cot for cot in feature_columns if cot not in numeric_features]
+    du_lieu_input: dict[str, Any] = {}
+
+    st.caption(MO_TA_SCENARIO_ML.get(scenario, ""))
+    st.markdown("**Thông tin phân loại**")
+    cac_cot_cat = st.columns(2)
+    for index, cot in enumerate(categorical_features):
+        options = lay_options_categorical(du_lieu, cot)
+        with cac_cot_cat[index % 2]:
+            du_lieu_input[cot] = st.selectbox(cot, options, key=f"ml_{scenario}_{cot}")
+
+    st.markdown("**Thông tin số**")
+    cac_cot_num = st.columns(3)
+    for index, cot in enumerate(numeric_features):
+        mac_dinh = lay_gia_tri_mac_dinh(du_lieu, cot)
+        buoc = 1.0 if cot in {"Duration", "Month", "Quarter", "Impressions", "Clicks", "Leads", "Conversions"} else 0.01
+        with cac_cot_num[index % 3]:
+            du_lieu_input[cot] = st.number_input(
+                cot,
+                min_value=0.0,
+                value=float(mac_dinh),
+                step=buoc,
+                key=f"ml_{scenario}_{cot}",
+            )
+
+    return pd.DataFrame([du_lieu_input], columns=feature_columns)
+
+
+def hien_thi_metrics_ml(metrics: dict[str, Any]) -> None:
+    """Hiển thị metrics test của best model."""
+    cac_cot = st.columns(4)
+    cac_cot[0].metric("MAE", dinh_dang_tien(float(metrics.get("mae", np.nan))))
+    cac_cot[1].metric("RMSE", dinh_dang_tien(float(metrics.get("rmse", np.nan))))
+    cac_cot[2].metric("R2", dinh_dang_so(float(metrics.get("r2", np.nan)), "decimal"))
+    cac_cot[3].metric("MAPE", f"{float(metrics.get('mape', np.nan)):.2f}%")
+
+
+def hien_thi_revenue_prediction_ml(du_lieu: pd.DataFrame) -> None:
+    """Hiển thị tab Revenue Prediction ML."""
+    st.subheader("Revenue Prediction ML")
+    metadata = tai_json_an_toan(str(DUONG_DAN_METADATA_ML))
+    summary = tai_json_an_toan(str(DUONG_DAN_SUMMARY_ML))
+
+    if not metadata or not summary:
+        st.warning("Chưa tìm thấy model metadata hoặc revenue_prediction_summary.json.")
+        st.code("venv/bin/python src/train_revenue_prediction.py", language="bash")
+        return
+
+    scenario_label = st.radio(
+        "Chọn scenario",
+        ["Pre-campaign", "After-funnel"],
+        horizontal=True,
+    )
+    scenario = "pre_campaign" if scenario_label == "Pre-campaign" else "after_funnel"
+    scenario_meta = metadata.get("scenarios", {}).get(scenario, {})
+    feature_columns = scenario_meta.get("features", [])
+    model_file = metadata.get("model_files", {}).get(scenario, "")
+    duong_dan_model = THU_MUC_MODEL_ML / model_file
+
+    if not feature_columns or not duong_dan_model.exists():
+        st.warning("Thiếu model hoặc danh sách feature cho scenario đã chọn.")
+        st.code("venv/bin/python src/train_revenue_prediction.py", language="bash")
+        return
+
+    cac_cot_thieu = kiem_tra_cot(du_lieu, feature_columns)
+    if cac_cot_thieu:
+        st.warning(f"Dataset thiếu cột để tạo form: {', '.join(cac_cot_thieu)}")
+        return
+
+    try:
+        model = tai_model_ml(str(duong_dan_model))
+    except Exception as loi:
+        st.error(f"Không thể load model: {loi}")
+        st.code("venv/bin/python src/train_revenue_prediction.py", language="bash")
+        return
+
+    du_lieu_input = tao_form_du_doan_ml(du_lieu, feature_columns, scenario)
+    if st.button("Predict Revenue", type="primary"):
+        try:
+            du_doan_log = model.predict(du_lieu_input)
+            du_doan = float(np.maximum(np.expm1(du_doan_log), 0)[0])
+        except Exception as loi:
+            st.error(f"Không thể dự đoán Revenue: {loi}")
+            return
+
+        st.metric("Predicted Revenue", dinh_dang_tien(du_doan))
+        st.caption(f"Scenario: {TEN_SCENARIO_ML[scenario]} | Best model: {scenario_meta.get('best_model', 'N/A')}")
+        metrics = scenario_meta.get("test_metrics", {})
+        if metrics:
+            hien_thi_metrics_ml(metrics)
+
+    scenario_summary = summary.get("scenarios", {}).get(scenario, {})
+    if scenario_summary:
+        st.markdown("**Model comparison trên test set**")
+        bang_metrics = pd.DataFrame(scenario_summary.get("metrics", {})).T.reset_index()
+        if not bang_metrics.empty:
+            bang_metrics = bang_metrics.rename(columns={"index": "Model"})
+            st.dataframe(bang_metrics, width="stretch", hide_index=True)
+
+
 def kiem_tra_cot(du_lieu: pd.DataFrame, cac_cot: Iterable[str]) -> list[str]:
     """Trả về các cột bị thiếu."""
     return [cot for cot in cac_cot if cot not in du_lieu.columns]
 
 
 def chay_dashboard() -> None:
-    """Khởi chạy dashboard EDA và Business Analytics."""
+    """Khởi chạy dashboard EDA, Business Analytics và Revenue Prediction."""
     st.set_page_config(
         page_title="Dashboard Marketing Đa Thương Hiệu",
         layout="wide",
     )
     st.title("Phân Tích Hiệu Quả Chiến Dịch Marketing Đa Thương Hiệu")
-    st.caption("Dashboard theo dõi kết quả EDA và phân tích kinh doanh.")
+    st.caption("Dashboard theo dõi kết quả EDA, phân tích kinh doanh và Revenue Prediction ML.")
 
     duong_dan_du_lieu = tim_file_du_lieu()
     if duong_dan_du_lieu is None:
@@ -351,6 +525,7 @@ def chay_dashboard() -> None:
             "Xu hướng theo tháng",
             "Biểu đồ EDA",
             "Báo cáo kinh doanh",
+            "Revenue Prediction ML",
         ]
     )
     with cac_tab[0]:
@@ -386,6 +561,8 @@ def chay_dashboard() -> None:
         hien_thi_anh_eda()
     with cac_tab[7]:
         hien_thi_bao_cao()
+    with cac_tab[8]:
+        hien_thi_revenue_prediction_ml(du_lieu)
 
 
 if __name__ == "__main__":

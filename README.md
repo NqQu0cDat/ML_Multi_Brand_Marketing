@@ -85,3 +85,41 @@ venv/bin/python -m streamlit run app/streamlit_app.py
 ```
 
 App tự tìm CSV trong `data/processed/`, ưu tiên file có chữ `features` trong tên.
+
+
+## Machine Learning / Revenue Prediction
+
+Đề tài 2 mở rộng project sang bài toán **Revenue Prediction for Marketing Campaigns**. Phần này chạy sau EDA / Business Analytics và không thay đổi logic phân tích cũ.
+
+Mục tiêu:
+
+- Dự đoán `Revenue` của marketing campaign.
+- So sánh hai scenario model:
+  - **Pre-campaign model**: dùng thông tin biết trước khi campaign chạy, phục vụ planning.
+  - **After-funnel model**: dùng thêm funnel metrics, là late-stage prediction để so sánh hiệu suất mô hình.
+
+Train model:
+
+```bash
+venv/bin/python src/train_revenue_prediction.py
+```
+
+Output chính:
+
+```text
+models/revenue_prediction/pre_campaign_model.joblib
+models/revenue_prediction/after_funnel_model.joblib
+models/revenue_prediction/model_metadata.json
+results/metrics/revenue_prediction_summary.json
+results/plots/ml/
+notebooks/03_revenue_prediction.ipynb
+reports/revenue_prediction_report.md
+```
+
+Chạy dashboard sau khi train:
+
+```bash
+venv/bin/python -m streamlit run app/streamlit_app.py
+```
+
+Mở tab **Revenue Prediction ML** để chọn scenario, nhập feature và dự đoán Revenue. Streamlit chỉ load model đã train sẵn, không train model trong app.
