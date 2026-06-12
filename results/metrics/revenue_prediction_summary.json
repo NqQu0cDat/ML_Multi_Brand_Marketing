@@ -53,142 +53,145 @@
         "Quarter"
       ],
       "split_info": {
-        "strategy": "temporal",
-        "test_size": 0.2,
-        "train_rows": 133332,
-        "test_rows": 33333,
+        "strategy": "temporal_strict_date_boundary",
+        "requested_test_size": 0.2,
+        "actual_test_size": 0.20142801428014281,
+        "cutoff_date": "2025-04-04",
+        "train_rows": 133094,
+        "test_rows": 33571,
         "train_date_min": "2024-07-01",
-        "train_date_max": "2025-04-04",
+        "train_date_max": "2025-04-03",
         "test_date_min": "2025-04-04",
-        "test_date_max": "2025-06-24"
+        "test_date_max": "2025-06-24",
+        "temporal_boundary_valid": true
       },
       "metrics": {
         "dummy": {
-          "mae": 324814.1840264619,
-          "rmse": 505530.24058409093,
-          "r2": -0.12582229146682256,
-          "mape": 116.6565657594312
+          "mae": 324976.0216930588,
+          "rmse": 505861.06433953706,
+          "r2": -0.12610125108643833,
+          "mape": 116.55086689185154
         },
         "ridge": {
-          "mae": 260416.02978990492,
-          "rmse": 437541.6959540256,
-          "r2": 0.15663717195453064,
-          "mape": 67.93261480601812
+          "mae": 260587.56606123518,
+          "rmse": 437869.10571955383,
+          "r2": 0.15626990062694301,
+          "mape": 67.90652463822889
         },
         "random_forest": {
-          "mae": 219004.05333781513,
-          "rmse": 346492.2498150293,
-          "r2": 0.47111333953827317,
-          "mape": 54.163134903605034
+          "mae": 219099.7392139298,
+          "rmse": 346651.7583943707,
+          "r2": 0.4711874553315639,
+          "mape": 54.15954418774399
         }
       },
       "best_model": "random_forest",
       "best_metrics": {
-        "mae": 219004.05333781513,
-        "rmse": 346492.2498150293,
-        "r2": 0.47111333953827317,
-        "mape": 54.163134903605034
+        "mae": 219099.7392139298,
+        "rmse": 346651.7583943707,
+        "r2": 0.4711874553315639,
+        "mape": 54.15954418774399
       },
       "feature_importance": [
         {
           "feature": "num__Acquisition_Cost",
-          "importance": 0.9223281454795783
+          "importance": 0.9223188801422137
         },
         {
           "feature": "num__Duration",
-          "importance": 0.014236536283988072
+          "importance": 0.01422449507542385
         },
         {
           "feature": "num__Month",
-          "importance": 0.008083221943075666
+          "importance": 0.00805934165604037
         },
         {
           "feature": "cat__Brand_Purplle",
-          "importance": 0.001923105618292762
+          "importance": 0.0019388727425980615
         },
         {
           "feature": "cat__Brand_Tira",
-          "importance": 0.0018587173911419157
+          "importance": 0.001897221097905811
         },
         {
           "feature": "cat__Brand_Nykaa",
-          "importance": 0.001811681928052943
+          "importance": 0.0017993703454209672
         },
         {
           "feature": "cat__Language_Hindi",
-          "importance": 0.0018040470407881305
-        },
-        {
-          "feature": "cat__Language_English",
-          "importance": 0.0017191987040944747
+          "importance": 0.0017732974615909199
         },
         {
           "feature": "cat__Language_Tamil",
-          "importance": 0.0016983386672432157
+          "importance": 0.0017461906864247605
+        },
+        {
+          "feature": "cat__Language_English",
+          "importance": 0.0016954897243295123
         },
         {
           "feature": "cat__Language_Bengali",
-          "importance": 0.0016610138768688425
+          "importance": 0.001672962546430855
         },
         {
           "feature": "cat__Customer_Segment_Working Women",
-          "importance": 0.0016290052468954195
+          "importance": 0.001610777650950061
         },
         {
           "feature": "cat__Campaign_Type_Paid Ads",
-          "importance": 0.0016064395794862403
-        },
-        {
-          "feature": "cat__Target_Audience_Working Women",
-          "importance": 0.001600770075490208
-        },
-        {
-          "feature": "cat__Customer_Segment_Tier 2 City Customers",
-          "importance": 0.0015933315427687448
+          "importance": 0.0016088071651729151
         },
         {
           "feature": "cat__Campaign_Type_Influencer",
-          "importance": 0.0015852661966305834
+          "importance": 0.0016086833859713324
         },
         {
-          "feature": "cat__Target_Audience_Youth",
-          "importance": 0.0015820181377514796
-        },
-        {
-          "feature": "cat__Customer_Segment_Premium Shoppers",
-          "importance": 0.0015776396650784403
-        },
-        {
-          "feature": "num__Quarter",
-          "importance": 0.0015721476475367418
-        },
-        {
-          "feature": "cat__Campaign_Type_Social Media",
-          "importance": 0.001570072365178947
-        },
-        {
-          "feature": "cat__Target_Audience_Premium Shoppers",
-          "importance": 0.0015654345390828852
+          "feature": "cat__Customer_Segment_Tier 2 City Customers",
+          "importance": 0.0015949369652685783
         },
         {
           "feature": "cat__Customer_Segment_College Students",
-          "importance": 0.0015608263863084644
+          "importance": 0.0015946792556900651
         },
         {
-          "feature": "cat__Campaign_Type_Email",
-          "importance": 0.0015599918369184965
+          "feature": "num__Quarter",
+          "importance": 0.001585536456311186
         },
         {
-          "feature": "cat__Campaign_Type_SEO",
-          "importance": 0.0015449749542762487
+          "feature": "cat__Target_Audience_Working Women",
+          "importance": 0.0015808571002088694
+        },
+        {
+          "feature": "cat__Campaign_Type_Social Media",
+          "importance": 0.001566005898139812
+        },
+        {
+          "feature": "cat__Customer_Segment_Premium Shoppers",
+          "importance": 0.0015633727542613293
         },
         {
           "feature": "cat__Customer_Segment_Youth",
-          "importance": 0.0015400392780640056
+          "importance": 0.0015578992846740113
+        },
+        {
+          "feature": "cat__Target_Audience_Premium Shoppers",
+          "importance": 0.0015531527905748097
+        },
+        {
+          "feature": "cat__Target_Audience_Youth",
+          "importance": 0.0015417137307230245
         },
         {
           "feature": "cat__Target_Audience_College Students",
-          "importance": 0.0015255545178074485
+          "importance": 0.0015369092494882497
+        },
+        {
+          "feature": "cat__Campaign_Type_Email",
+          "importance": 0.001536823713127028
+        },
+        {
+          "feature": "cat__Campaign_Type_SEO",
+          "importance": 0.0015298736728791699
         }
       ]
     },
@@ -239,142 +242,145 @@
         "Cost_per_Conversion"
       ],
       "split_info": {
-        "strategy": "temporal",
-        "test_size": 0.2,
-        "train_rows": 133332,
-        "test_rows": 33333,
+        "strategy": "temporal_strict_date_boundary",
+        "requested_test_size": 0.2,
+        "actual_test_size": 0.20142801428014281,
+        "cutoff_date": "2025-04-04",
+        "train_rows": 133094,
+        "test_rows": 33571,
         "train_date_min": "2024-07-01",
-        "train_date_max": "2025-04-04",
+        "train_date_max": "2025-04-03",
         "test_date_min": "2025-04-04",
-        "test_date_max": "2025-06-24"
+        "test_date_max": "2025-06-24",
+        "temporal_boundary_valid": true
       },
       "metrics": {
         "dummy": {
-          "mae": 324814.1840264619,
-          "rmse": 505530.24058409093,
-          "r2": -0.12582229146682256,
-          "mape": 116.6565657594312
+          "mae": 324976.0216930588,
+          "rmse": 505861.06433953706,
+          "r2": -0.12610125108643833,
+          "mape": 116.55086689185154
         },
         "ridge": {
-          "mae": 165584.96543809358,
-          "rmse": 257859.00454736006,
-          "r2": 0.7070859747158048,
-          "mape": 38.67653258835762
+          "mae": 165593.14755885603,
+          "rmse": 257800.0949217086,
+          "r2": 0.7075301651194719,
+          "mape": 38.65670414788849
         },
         "random_forest": {
-          "mae": 155403.23648664774,
-          "rmse": 234448.84459009074,
-          "r2": 0.7578570901270832,
-          "mape": 35.59212110001616
+          "mae": 155464.99011310877,
+          "rmse": 234513.455331755,
+          "r2": 0.757980440943196,
+          "mape": 35.60125168267421
         }
       },
       "best_model": "random_forest",
       "best_metrics": {
-        "mae": 155403.23648664774,
-        "rmse": 234448.84459009074,
-        "r2": 0.7578570901270832,
-        "mape": 35.59212110001616
+        "mae": 155464.99011310877,
+        "rmse": 234513.455331755,
+        "r2": 0.757980440943196,
+        "mape": 35.60125168267421
       },
       "feature_importance": [
         {
           "feature": "num__Conversions",
-          "importance": 0.9464292032791075
+          "importance": 0.9462316534074122
         },
         {
           "feature": "num__Lead_Rate",
-          "importance": 0.00506427738477367
+          "importance": 0.005045799619481582
         },
         {
           "feature": "num__CTR",
-          "importance": 0.0050145761219615665
+          "importance": 0.005012584964787316
         },
         {
           "feature": "num__Impressions",
-          "importance": 0.004963980408670408
+          "importance": 0.004986306197399975
         },
         {
           "feature": "num__Clicks",
-          "importance": 0.004312532963213942
+          "importance": 0.004355687729694529
         },
         {
           "feature": "num__Conversion_Rate",
-          "importance": 0.0038234106140884174
+          "importance": 0.0038487796650721632
         },
         {
           "feature": "num__Cost_per_Conversion",
-          "importance": 0.003794839251600488
+          "importance": 0.0038100312220339825
         },
         {
           "feature": "num__Acquisition_Cost",
-          "importance": 0.0037641267268060394
+          "importance": 0.003792827345378232
         },
         {
           "feature": "num__Duration",
-          "importance": 0.003748884378396965
+          "importance": 0.003755249946074289
         },
         {
           "feature": "num__Leads",
-          "importance": 0.003577354358149381
+          "importance": 0.0036178737451176193
         },
         {
           "feature": "num__Month",
-          "importance": 0.002042097549473615
-        },
-        {
-          "feature": "cat__Brand_Purplle",
-          "importance": 0.00048146744495184454
+          "importance": 0.002046704482224285
         },
         {
           "feature": "cat__Brand_Nykaa",
-          "importance": 0.00047689957242160586
+          "importance": 0.00048634546073343725
         },
         {
           "feature": "cat__Brand_Tira",
-          "importance": 0.00047259154004540403
+          "importance": 0.0004764055828419499
+        },
+        {
+          "feature": "cat__Brand_Purplle",
+          "importance": 0.0004718181338268643
         },
         {
           "feature": "cat__Language_Hindi",
-          "importance": 0.0004544807114847475
+          "importance": 0.00046034596629957445
         },
         {
           "feature": "cat__Language_Bengali",
-          "importance": 0.0004475030675285197
+          "importance": 0.0004465338264723832
         },
         {
           "feature": "cat__Language_Tamil",
-          "importance": 0.0004367254401109107
+          "importance": 0.00043998481589834854
         },
         {
           "feature": "cat__Language_English",
-          "importance": 0.00043279792943560927
-        },
-        {
-          "feature": "cat__Customer_Segment_Youth",
-          "importance": 0.00043033207348804894
-        },
-        {
-          "feature": "num__Quarter",
-          "importance": 0.0004224086276209182
-        },
-        {
-          "feature": "cat__Campaign_Type_Email",
-          "importance": 0.0004214587752466582
-        },
-        {
-          "feature": "cat__Customer_Segment_Tier 2 City Customers",
-          "importance": 0.00041908646550640777
+          "importance": 0.0004372835996972371
         },
         {
           "feature": "cat__Target_Audience_Youth",
-          "importance": 0.00041676648595851545
+          "importance": 0.00042564792487970676
         },
         {
-          "feature": "cat__Customer_Segment_College Students",
-          "importance": 0.0004066705689186781
+          "feature": "cat__Campaign_Type_Email",
+          "importance": 0.0004240091420502385
+        },
+        {
+          "feature": "cat__Customer_Segment_Tier 2 City Customers",
+          "importance": 0.000423882381894765
+        },
+        {
+          "feature": "cat__Customer_Segment_Youth",
+          "importance": 0.0004190822960127566
+        },
+        {
+          "feature": "num__Quarter",
+          "importance": 0.00040992983093666617
         },
         {
           "feature": "cat__Campaign_Type_Influencer",
-          "importance": 0.0004010739438460878
+          "importance": 0.0004062481145084051
+        },
+        {
+          "feature": "cat__Customer_Segment_College Students",
+          "importance": 0.0004023338251509108
         }
       ]
     }

@@ -47,9 +47,9 @@ Pre-campaign model không dùng Impressions, Clicks, Leads, Conversions hoặc K
 
 ## 6. Train/Test Split Strategy
 
-- Pre-campaign split: **temporal**.
-- After-funnel split: **temporal**.
-- Nếu có Date, dữ liệu được tách theo thời gian: 80% đầu làm train, 20% cuối làm test.
+- Pre-campaign: **Temporal split với ranh giới ngày nghiêm ngặt tại 2025-04-04; train_date_max=2025-04-03 và test_date_min=2025-04-04.**
+- After-funnel: **Temporal split với ranh giới ngày nghiêm ngặt tại 2025-04-04; train_date_max=2025-04-03 và test_date_min=2025-04-04.**
+- Pipeline không cho cùng một ngày xuất hiện ở cả train và test khi temporal split.
 
 ## 7. Model Comparison
 
@@ -57,27 +57,27 @@ Pre-campaign model không dùng Impressions, Clicks, Leads, Conversions hoặc K
 
 | Model | MAE | RMSE | R2 | MAPE |
 |---|---:|---:|---:|---:|
-| dummy | 324,814.1840 | 505,530.2406 | -0.1258 | 116.6566% |
-| ridge | 260,416.0298 | 437,541.6960 | 0.1566 | 67.9326% |
-| random_forest | 219,004.0533 | 346,492.2498 | 0.4711 | 54.1631% |
+| dummy | 324,976.0217 | 505,861.0643 | -0.1261 | 116.5509% |
+| ridge | 260,587.5661 | 437,869.1057 | 0.1563 | 67.9065% |
+| random_forest | 219,099.7392 | 346,651.7584 | 0.4712 | 54.1595% |
 
 ### After-funnel
 
 | Model | MAE | RMSE | R2 | MAPE |
 |---|---:|---:|---:|---:|
-| dummy | 324,814.1840 | 505,530.2406 | -0.1258 | 116.6566% |
-| ridge | 165,584.9654 | 257,859.0045 | 0.7071 | 38.6765% |
-| random_forest | 155,403.2365 | 234,448.8446 | 0.7579 | 35.5921% |
+| dummy | 324,976.0217 | 505,861.0643 | -0.1261 | 116.5509% |
+| ridge | 165,593.1476 | 257,800.0949 | 0.7075 | 38.6567% |
+| random_forest | 155,464.9901 | 234,513.4553 | 0.7580 | 35.6013% |
 
 ![Model Comparison RMSE](../results/plots/ml/35_model_comparison_rmse.png)
 
 ## 8. Best Model for Pre-campaign
 
 - Best model: **random_forest**.
-- RMSE: **346,492.2498**.
-- MAE: **219,004.0533**.
-- R2: **0.4711**.
-- MAPE: **54.1631%**.
+- RMSE: **346,651.7584**.
+- MAE: **219,099.7392**.
+- R2: **0.4712**.
+- MAPE: **54.1595%**.
 
 ![Pre-campaign Actual vs Predicted](../results/plots/ml/31_actual_vs_predicted_pre_campaign.png)
 
@@ -86,10 +86,10 @@ Pre-campaign model không dùng Impressions, Clicks, Leads, Conversions hoặc K
 ## 9. Best Model for After-funnel
 
 - Best model: **random_forest**.
-- RMSE: **234,448.8446**.
-- MAE: **155,403.2365**.
-- R2: **0.7579**.
-- MAPE: **35.5921%**.
+- RMSE: **234,513.4553**.
+- MAE: **155,464.9901**.
+- R2: **0.7580**.
+- MAPE: **35.6013%**.
 
 ![After-funnel Actual vs Predicted](../results/plots/ml/33_actual_vs_predicted_after_funnel.png)
 
